@@ -5,18 +5,21 @@ namespace VkApi\CLasses;
 class AutoStatus
 {
     /**
+     * Time to change phrase.
+     *
      * @var int
      */
     private $timeout;
 
-
     /**
+     * Access VK token
+     *
      * @var string
      */
     private $accessToken;
 
     /**
-     * Random phrase
+     * Random phrase.
      *
      * @var
      */
@@ -29,6 +32,8 @@ class AutoStatus
     private $apiVersion;
 
     /**
+     * Max number of characters in VK Status.
+     *
      * @var int
      */
     private $maxChars;
@@ -36,13 +41,13 @@ class AutoStatus
     public function __construct($accessToken, $timeout)
     {
         $this->accessToken = $accessToken;
-        $this->apiVersion = 5.126;
         $this->timeout = $timeout;
         $this->maxChars = 140;
+        $this->apiVersion = 5.126;
     }
 
     /**
-     * Get phrase for status
+     * Get phrase for status.
      *
      * @return $this
      */
@@ -76,6 +81,8 @@ class AutoStatus
     }
 
     /**
+     * Set phrase.
+     *
      * @return $this
      */
     private function setPhrase()
@@ -83,14 +90,14 @@ class AutoStatus
         $params = ['text' => $this->phrase, 'access_token' => $this->accessToken, 'v' => $this->apiVersion];
         $params = http_build_query($params);
         $result = file_get_contents('https://api.vk.com/method/status.set?' . $params);
-//        print_r(json_decode($result, true));
+//        print_r(json_decode($result, true)); TODO: Uncomment on errors
 
         return $this;
     }
 
 
     /**
-     * Run cycle
+     * Run cycle.
      */
     public function run()
     {
