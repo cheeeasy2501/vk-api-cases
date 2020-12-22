@@ -1,0 +1,15 @@
+{
+    "name": "nikita.koido/vk-api",
+    "authors": [
+        {
+            "name": "Nikita Koida",
+            "email": "cheeeasy2501@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "VkApi\\": "\\"
+        }
+    }
+}
