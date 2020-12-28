@@ -1,8 +1,8 @@
 <?php
 
-namespace VkApi\CLasses;
+namespace VkApi\Classes;
 
-class AutoStatus
+class AutoStatus extends Base
 {
     /**
      * Time to change phrase.
@@ -12,24 +12,11 @@ class AutoStatus
     private $timeout;
 
     /**
-     * Access VK token
-     *
-     * @var string
-     */
-    private $accessToken;
-
-    /**
      * Random phrase.
      *
      * @var
      */
     private $phrase;
-    /**
-     * Version VK API.
-     *
-     * @var float
-     */
-    private $apiVersion;
 
     /**
      * Max number of characters in VK Status.
@@ -38,12 +25,11 @@ class AutoStatus
      */
     private $maxChars;
 
-    public function __construct($accessToken, $timeout)
+    public function __construct($timeout)
     {
-        $this->accessToken = $accessToken;
+        parent::__construct();
         $this->timeout = $timeout;
         $this->maxChars = 140;
-        $this->apiVersion = 5.126;
     }
 
     /**
